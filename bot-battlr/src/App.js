@@ -15,7 +15,7 @@ function App() {
   const [view, setView] = useState('home'); // 'home', 'details', or 'army'
 
   useEffect(() => {
-    fetch('http://localhost:8001/bots')
+    fetch('https://react-phase-2-week-2-db.vercel.app/bots')
       .then(response => response.json())
       .then(data => setBots(data))
       .catch(error => console.error('Error fetching bots:', error));
@@ -32,7 +32,7 @@ function App() {
   };
 
   const handleDischarge = (botId) => {
-    fetch(`http://localhost:8001/bots/${botId}`, { method: 'DELETE' })
+    fetch(`https://react-phase-2-week-2-db.vercel.app/bots${botId}`, { method: 'DELETE' })
       .then(() => {
         setBots(bots.filter(b => b.id !== botId));
         handleRelease(botId);
